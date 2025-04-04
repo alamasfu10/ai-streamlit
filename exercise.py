@@ -5,8 +5,10 @@ import vertexai
 from vertexai.generative_models import GenerativeModel
 from vertexai.generative_models import Part
 
-# TODO: set up configuration
-PROJECT_ID = "<your_gcp_id>"
+
+# TODO: Get PROJECT_ID and LOCATION from os.environ variables
+
+# TODO: Set up Google Cloud Configuration configuration
 GCS_BUCKET_NAME = "<your_gcs_bucket>"
 GCS_BUCKET_PATH = "streamlit_app/exercise_audio_files"
 
@@ -21,6 +23,7 @@ def store_in_gcs(audio_file):
   gcs_path = f"{GCS_BUCKET_PATH}/{audio_file.name}"
   blob = storage_client.bucket(GCS_BUCKET_NAME).blob(gcs_path)
   blob.upload_from_file(audio_file)
+
 
 # TODO: Define function to send Gemini a prompt and an audio file
 def ask_gemini(audio_file, prompt):

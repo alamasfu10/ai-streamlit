@@ -14,9 +14,12 @@ import vertexai
 from vertexai.vision_models import Image as VertexImage
 from vertexai.vision_models import ImageGenerationModel
 
+# Get PROJECT_ID and LOCATION from os.environ variables
+PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT")
+LOCATION = os.environ.get("GOOGLE_CLOUD_REGION", "us_central1")
+
 # Init Vertex AI
-PROJECT_ID = "<your_gcp_id>"
-vertexai.init(project=PROJECT_ID, location="us-central1")
+vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 # Load generative AI models from Vertex AI
 generation_model = ImageGenerationModel.from_pretrained("imagen-3.0-generate-001")
