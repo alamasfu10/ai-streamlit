@@ -9,6 +9,7 @@ Deploy and use your first AI-powered Streamlit App.
 ## Requirements
 * **Python 3.x** 
 * **pip**
+* **gcloud**
 
 ## Deployment guide
 After you have cloned the repository, you just have to follow these steps
@@ -32,6 +33,11 @@ pip install -r requirements.txt
 ```bash
 export GOOGLE_CLOUD_PROJECT='<Your Google Cloud Project ID>'  # Change this
 export GOOGLE_CLOUD_REGION='us-central1' # If you change this, make sure the region is supported.
+```
+
+You might need to authenticate yourself locally in gcloud CLI, so you enable authentication to your Google Cloud APIs calls
+```bash
+gcloud auth application-default login
 ```
 
 ### 4). Run the Streamlit App
