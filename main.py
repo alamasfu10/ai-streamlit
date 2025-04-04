@@ -10,8 +10,13 @@ import uuid
 from PIL import Image
 
 import streamlit as st
-from vertexai.preview.vision_models import Image as VertexImage
-from vertexai.preview.vision_models import ImageGenerationModel
+import vertexai
+from vertexai.vision_models import Image as VertexImage
+from vertexai.vision_models import ImageGenerationModel
+
+# Init Vertex AI
+PROJECT_ID = "<your_gcp_id>"
+vertexai.init(project=PROJECT_ID, location="us-central1")
 
 # Load generative AI models from Vertex AI
 generation_model = ImageGenerationModel.from_pretrained("imagen-3.0-generate-001")
